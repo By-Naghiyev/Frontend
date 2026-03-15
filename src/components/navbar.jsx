@@ -124,14 +124,14 @@ const Navbar = () => {
 
         <div className="Navbar-Items Items-Left">
           <p onClick={(e) => handleNavClick(e, 'about')}>About us</p>
-          <p onClick={(e) => handleNavClick(e, 'home')}>Products</p>
-          <p onClick={(e) => handleNavClick(e, 'projects')}>Blogs</p>
+          <p onClick={(e) => handleNavClick(e, 'products')}>Products</p>
+          <p onClick={(e) => handleNavClick(e, 'blogs')}>Blogs</p>
           <p onClick={(e) => handleNavClick(e, 'contact')}>Contact</p>
         </div>
 
-        <div className="Navbar-Items Items-Center">
+        <p className="Navbar-Items Items-Center" onClick={(e) => handleNavClick(e, 'home')}>
           <img className='Navbar-Logo' src={logoToShow} alt="logo" />
-        </div>
+        </p>
 
         <div className="Navbar-Items Items-Right">
           <div className="Navbar-i18n">

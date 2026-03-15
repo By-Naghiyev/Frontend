@@ -1,0 +1,437 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --black-color: #000000;
+    --white-color: #ffffff;
+    --green-gradient-primary: linear-gradient(180deg, rgb(43, 101, 93) 0%, #1F4A44 100%);
+    --black-gradient-primary: linear-gradient(180deg, rgba(0, 0, 0, 0.61) 0%, rgba(255, 255, 255, 0) 100%);
+    --shadow-soft: 0px 2px 5px 0px rgba(0, 0, 0, 0.15);
+    --drop-shadow-soft: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.15));
+    --drop-shadow-soft-hover: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.45));
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+    margin: 0;
+    background-color: var(--white-color);
+    z-index: 0; /* ensure pseudo-element is behind content */
+}
+
+body::before {
+    content: "";
+    position: fixed; /* stay in place */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    background-image: url(./svg/bg-body.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    
+    opacity: 0.5; /* set your desired opacity */
+    z-index: -1; /* behind all body content */
+}
+
+
+/* Base styles - for all screens */
+.Navbar-Group {
+    position: fixed;
+    width: 100%;
+    height: 110px;
+    color: var(--white-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+/* Desktop styles (above 1024px) */
+@media (min-width: 1024px) {
+    .Navbar-Group {
+        background: var(--black-gradient-primary);
+        box-shadow: none;
+
+        mask-image: linear-gradient(to bottom, rgb(0, 0, 0), rgba(0, 0, 0, 0.623));
+
+    }
+
+    .Navbar-Group.scrolled {
+        background: var(--green-gradient-primary);
+        box-shadow: var(--shadow-soft);
+        mask-image: none;
+    }
+}
+
+/* Mobile styles (below 1024px) */
+@media (max-width: 1024px) {
+    .Navbar-Group {
+        background: var(--green-gradient-primary);
+        box-shadow: var(--shadow-soft);
+    }
+}
+
+/* Logo transition */
+.Navbar-Logo {
+    transition: all 0.3s ease;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.Navbar-Logo {
+    min-height: 40px;
+    max-height: 50px;
+    width: auto;
+    filter: var(--drop-shadow-soft);
+    transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+}
+
+.Navbar-Logo:hover {
+    filter: var(--drop-shadow-soft-hover);
+    -webkit-filter: var(--drop-shadow-soft-hover);
+    scale: 1.15;
+    transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    opacity: 0.85;
+    cursor: pointer;
+}
+
+.Navbar-Items {
+    display: flex;
+    gap: 40px;
+    padding: 40px;
+    width: calc(100% / 3);
+    align-items: center;
+    /* min-width: 300px; */
+}
+
+.Navbar-Items-Menu {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+    width: calc(100% / 3);
+    /* min-width: 300px; */
+}
+
+.Navbar-Items a {
+    font-size: 16px;
+    text-transform: uppercase;
+    color: var(--white-color);
+    text-decoration: none;
+    white-space: nowrap;
+
+}
+
+.Items-Right {
+    justify-content: flex-end;
+}
+
+.Items-Left {
+    justify-content: flex-start;
+}
+
+.Items-Center {
+    justify-content: center;
+}
+
+.Navbar-i18n {
+    display: flex;
+    gap: 10px;
+}
+
+.Navbar-Theme {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: 1px solid var(--white-color);
+    border-radius: 100px;
+    padding: 3px 3.1px;
+
+}
+
+
+.theme-active {
+    border: 1px solid var(--white-color);
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    -ms-border-radius: 100px;
+    -o-border-radius: 100px;
+    opacity: 1;
+    /* background-color: var(--white-color); */
+}
+
+/* .theme-active  {
+    filter: brightness(0) saturate(100%) invert(22%) sepia(15%) saturate(1618%) hue-rotate(122deg) brightness(92%) contrast(85%);
+    -webkit-filter: brightness(0) saturate(100%) invert(22%) sepia(15%) saturate(1618%) hue-rotate(122deg) brightness(92%) contrast(85%);
+} */
+
+.theme-inactive {
+    opacity: 0.5;
+}
+
+
+.Navbar-i18n img {
+    height: 30px;
+    width: auto;
+    cursor: pointer;
+    transition: 0.2s;
+    padding: 1px;
+
+}
+
+.lang-active {
+    outline: 1px solid var(--white-color);
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    opacity: 1;
+}
+
+.lang-inactive {
+    opacity: 0.5;
+}
+
+
+@media screen and (min-width: 1024px) {
+    .Navbar-Items-Menu {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .Navbar-Group {
+        padding-inline: 40px;
+    }
+
+    .Items-Left:not(.Navbar-Items-Menu) {
+        display: none;
+    }
+
+    .Items-Right {
+        display: none;
+    }
+
+    .mobile-menu-bottom {
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .Navbar-Theme {
+        width: fit-content;
+    }
+}
+
+/* ADD THIS EXACT CODE AT THE BOTTOM - NO CHANGES TO YOUR JSX */
+
+/* Mobile responsive - swap logo and menu places */
+@media screen and (max-width: 1024px) {
+    .Navbar-Group {
+        padding-inline: 40px;
+        display: flex;
+        /* flex-wrap: wrap; */
+    }
+
+    /* Hide desktop navigation links */
+    .Items-Left:not(.Navbar-Items-Menu) {
+        display: none;
+    }
+
+    /* Hide desktop right items */
+    .Items-Right {
+        display: none;
+    }
+
+    /* SWAP POSITIONS - menu on left, logo on right */
+    .Navbar-Items-Menu {
+        order: 2 !important;
+        display: flex !important;
+        justify-content: flex-end !important;
+        width: 33.33%;
+    }
+
+    .Items-Center {
+        order: 1 !important;
+        justify-content: flex-start !important;
+        width: 33.33%;
+        margin-right: auto;
+    }
+
+    .Navbar-Items {
+        padding: 0;
+    }
+
+
+}
+
+/* Mobile menu styles - with top to bottom animation */
+.mobile-menu-fixed {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    background: var(--green-gradient-primary);
+    padding: 40px;
+    z-index: 1000;
+    box-shadow: var(--shadow-soft);
+    transform: translateY(-100%);
+    transition: transform 0.4s ease-in-out;
+    -webkit-transition: transform 0.4s ease-in-out;
+    -moz-transition: transform 0.4s ease-in-out;
+    -ms-transition: transform 0.4s ease-in-out;
+    -o-transition: transform 0.4s ease-in-out;
+    height: 100dvh;
+}
+
+.bgPattern {
+    position: absolute;
+    height: 100dvh;
+    width: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.8;
+}
+
+.mobile-menu-fixed.open {
+    transform: translateY(108px);
+    -webkit-transform: translateY(108px);
+    -moz-transform: translateY(108px);
+    -ms-transform: translateY(108px);
+    -o-transform: translateY(108px);
+}
+
+.mobile-menu-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.mobile-menu-content a {
+    color: var(--white-color);
+    text-decoration: none;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.mobile-menu-bottom {
+    display: flex;
+    gap: 20px;
+    /* margin-top: 20px; */
+}
+
+/* Backdrop */
+.mobile-backdrop {
+    position: fixed;
+    top: 108px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 108px);
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+.Section-Group {
+   
+display: flex;
+} */
+
+
+
+
+
+.Header-Group img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    corner-shape: squircle !important;
+
+}
+
+
+.Section-Group div{
+    transform-origin: center;
+    will-change: transform;
+    corner-shape: squircle !important;
+    
+}
+
+
+.Header-Group {
+    width: 100%;
+    height: 100dvh;
+    position: relative;
+    background-color: var(--white-color);
+
+    
+}
+
+
+.About-Group {
+  width: 100%;
+    height: 100dvh;
+    background-color: var(--white-color);
+}
+
+.Header-Text-Group {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

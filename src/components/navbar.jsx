@@ -39,36 +39,8 @@ const Navbar = () => {
 
   const logoToShow = (!isDesktop || (isDesktop && scrolled)) ? LogoSvg : LogoTextSvg
 
-  // This function will scroll 4 times with one click
+  // 7x scroll with responsive block alignment
   const scrollFourTimes = (id) => {
-    const section = document.getElementById(id)
-    if (!section) return
-
-    // Clear any existing timeouts to prevent overlapping
-    if (window.scrollTimeouts) {
-      window.scrollTimeouts.forEach(timeout => clearTimeout(timeout))
-    }
-    
-    window.scrollTimeouts = []
-    
-    // Scroll 4 times with increasing delays
-    for (let i = 0; i < 7; i++) {
-      const timeoutId = setTimeout(() => {
-        section.scrollIntoView({ 
-          behavior: 'smooth', 
-          block: 'start'
-        })
-        console.log(`Scroll ${i + 1} of 7`) // For debugging
-      }, i * 200) // 200ms delay between each scroll
-      
-      window.scrollTimeouts.push(timeoutId)
-    }
-
-    setMenuOpen(false)
-  }
-
-  // Alternative: More aggressive scrolling with position variation
-  const scrollFourTimesWithOffset = (id) => {
     const section = document.getElementById(id)
     if (!section) return
 
@@ -78,10 +50,46 @@ const Navbar = () => {
     }
     
     window.scrollTimeouts = []
+
+    // Scroll 7 times
+    for (let i = 0; i < 7; i++) {
+      const timeoutId = setTimeout(() => {
+        section.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: window.innerWidth > 1024 ? 'end' : 'start'
+        })
+        console.log(`Scroll ${i + 1} of 7`)
+        
+        // On the LAST scroll (i === 6), if mobile, scroll UP 110px immediately after
+        if (i === 6 && window.innerWidth < 1024) {
+          setTimeout(() => {
+            window.scrollBy({
+              top: -110,
+              behavior: 'smooth'
+            })
+            console.log('Scrolling up 110px on mobile')
+          }, 50) // Just 50ms delay after the last scroll
+        }
+      }, i * 200)
+      
+      window.scrollTimeouts.push(timeoutId)
+    }
+
+    setMenuOpen(false)
+  }
+
+  const scrollFourTimesWithOffset = (id) => {
+    const section = document.getElementById(id)
+    if (!section) return
+
+    if (window.scrollTimeouts) {
+      window.scrollTimeouts.forEach(timeout => clearTimeout(timeout))
+    }
     
-    // Different offsets to simulate 4 different clicks
+    window.scrollTimeouts = []
+
     const offsets = [0, 50, 100, 150, 200, 250, 300]
-    
+
     for (let i = 0; i < 7; i++) {
       const timeoutId = setTimeout(() => {
         const elementPosition = section.getBoundingClientRect().top + window.pageYOffset
@@ -92,7 +100,18 @@ const Navbar = () => {
           behavior: 'smooth'
         })
         console.log(`Scroll ${i + 1} of 7 with offset ${offsets[i]}`)
-      }, i * 300) // 300ms delay between each scroll
+        
+        // On the LAST scroll (i === 6), if mobile, scroll UP 110px immediately after
+        if (i === 6 && window.innerWidth < 1024) {
+          setTimeout(() => {
+            window.scrollBy({
+              top: -110,
+              behavior: 'smooth'
+            })
+            console.log('Scrolling up 110px on mobile')
+          }, 50) // Just 50ms delay after the last scroll
+        }
+      }, i * 300)
       
       window.scrollTimeouts.push(timeoutId)
     }
@@ -100,12 +119,11 @@ const Navbar = () => {
     setMenuOpen(false)
   }
 
-  // Handle click with event prevention
   const handleNavClick = (e, id) => {
     e.preventDefault()
     e.stopPropagation()
-    scrollFourTimes(id) // This will scroll 4 times with one click
-    // scrollFourTimesWithOffset(id) // Use this for scrolled variation
+    scrollFourTimes(id)
+    // scrollFourTimesWithOffset(id) // optional alternative
   }
 
   return (

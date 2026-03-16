@@ -348,6 +348,89 @@ body::before {
         padding: 0;
     }
 
+    .Slider-Group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: calc(100% - 5rem);
+        gap: 80px;
+    }
+
+    .SubSlider {
+        order: 2;
+        /* Moves this to the end */
+    }
+
+    .SubText {
+        order: 1;
+        /* Moves this to the front */
+    }
+
+    .SubText {
+        display: flex;
+        flex-direction: column;
+        /* align-items: center; */
+        justify-content: center;
+        gap: 20px;
+        font-size: 20px;
+        /* padding-inline: 10rem; */
+        max-width: 100% !important;
+        width: 100% !important;
+        text-align: justify;
+        margin-right: 0 !important;
+        
+    }
+
+    .Slider-Group {
+        padding-inline: 20px;
+    }
+
+    .SubText {
+        font-size: 18px !important;
+    }
+
+    .Slider-Group {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: calc(100% - 5rem);
+        gap: 0px !important;
+    }
+
+    .About-Group {
+        width: 100%;
+        height: fit-content !important;
+        background-color: var(--white-color);
+        /* margin: 110px; */
+        padding-top: 5rem;
+        padding-bottom: 80px;
+
+    }
+
+    .ImageStacks img {
+        height: 400px !important;
+        width: fit-content;
+    }
+
+    .SubSlider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px !important;
+}
+
+.ImageStacks img:nth-child(2) {
+    position: absolute;
+    left: 3rem !important;
+    top: 0;
+    z-index: 0 !important;
+    scale: 0.9;
+    opacity: 0.5;
+}
+
+    .ImageStacks {}
+
 
 }
 
@@ -501,11 +584,6 @@ display: flex;
 }
 
 
-.About-Group {
-    width: 100%;
-    height: 100dvh;
-    background-color: var(--white-color);
-}
 
 .Header-Section-Group {}
 
@@ -615,6 +693,33 @@ button:hover {
     width: fit-content;
     height: fit-content;
     background-color: rgba(0, 0, 0, 0.068);
+}
+
+.ButtonOff2 {
+    border: 1px solid var(--green-color);
+    width: fit-content;
+    height: fit-content;
+    width: 60px;
+    height: 60px;
+    background: none;
+}
+
+.ButtonOff2 img {
+    filter: var(--green-filter-color);
+    -webkit-filter: var(--green-filter-color);
+}
+
+.ButtonOff2:hover {
+    filter: none !important;
+    -webkit-filter: none !important;
+    background: var(--green-gradient-primary);
+    width: 60px;
+    height: 60px;
+}
+
+.ButtonOff2:hover img {
+    filter: none !important;
+    -webkit-filter: none !important;
 }
 
 .ButtonOn {
@@ -767,4 +872,187 @@ button:hover {
     background-color: var(--green-color);
     width: 12px;
     height: 12px;
+}
+
+.Section-Title {
+    font-size: 45px;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 800;
+    color: var(--green-color);
+    /* margin-top: 10rem; */
+}
+
+.Section-Slot {
+    /* padding-top: 10rem; */
+}
+
+
+
+.About-Group {
+    width: 100%;
+    height: calc(100dvh - 110px);
+    background-color: var(--white-color);
+    /* margin: 110px; */
+    padding-top: 5rem;
+}
+
+.SubSlider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+
+}
+
+.SubText {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+    gap: 20px;
+    font-size: 20px;
+    /* padding-inline: 10rem; */
+    max-width: 30%;
+    width: 100%;
+    text-align: justify;
+    margin-right: 80px;
+    margin-bottom: 40px;
+}
+
+.SubText img {
+    filter: invert();
+    -webkit-filter: invert();
+    user-select: none;
+    width: 20rem;
+    margin-bottom: 20px;
+}
+
+.ImageStacks {
+    position: relative;
+}
+
+.ImageStacks img {
+    height: 450px;
+    width: fit-content;
+}
+
+.ImageStacks img:nth-child(2) {
+    position: absolute;
+    left: 5rem;
+    top: 0;
+    z-index: 0 !important;
+    scale: 0.9;
+    opacity: 0.5;
+
+}
+
+.ImageStacks img:nth-child(3) {
+    display: none;
+
+}
+
+.ImageStacks img:nth-child(1) {
+    position: relative;
+    z-index: 1;
+}
+
+.Slider-Group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100% - 5rem);
+    gap: 80px;
+}
+
+
+.ImageStacks img {
+    animation: slideChange .45s ease;
+}
+
+@keyframes slideChange {
+    from {
+        opacity: 0;
+        transform: translateX(60px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.ImageStacks img:nth-child(1) {
+    animation: slideChange1 .45s !important;
+    -webkit-animation: slideChange1 .45s !important;
+}
+
+@keyframes slideChange1 {
+    from {
+        opacity: 1;
+        transform: translateX(30px);
+        -webkit-transform: translateX(30px);
+        -moz-transform: translateX(30px);
+        -ms-transform: translateX(30px);
+        -o-transform: translateX(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+@media screen and (max-width: 768px)  {
+    .About-Group {
+    width: 100%;
+    height: calc(100dvh - 110px);
+    background-color: var(--white-color);
+    /* margin: 110px; */
+    /* padding-top: 0rem !; */
+    padding-bottom: 0px;
+}
+
+.ImageStacks img {
+    scale: 1.05;
+}
+
+.SubText{
+    margin-top: 60px;
+}
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .Header-Text-Group h1 {
+        font-size: 50px !important;
+        color: var(--white-color);
+        text-shadow: var(--shadow-soft);
+        text-transform: uppercase;
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+    }
+
+    .SubText {
+        display: flex;
+        flex-direction: column;
+        /* align-items: center; */
+        justify-content: center;
+        gap: 20px;
+        font-size: 20px;
+        /* padding-inline: 10rem; */
+        max-width: 100% !important;
+        width: 100% !important;
+        text-align: justify;
+        margin-right: 0 !important;
+        padding-inline: 40px;
+        padding-top:60px;
+    }
+
+    .Slider-Group {
+        padding-inline: 80px;
+    }
+    .SubSlider {
+        margin-bottom: 40px;
+
+    }
 }

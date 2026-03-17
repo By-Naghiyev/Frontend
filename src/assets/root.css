@@ -408,6 +408,7 @@ body::before {
 
     }
 
+
     .ImageStacks img {
         height: 400px !important;
         width: fit-content;
@@ -552,7 +553,11 @@ body::before {
 display: flex;
 } */
 
+.FreeResponsive-Group {
+    height: fit-content !important;
+    padding-bottom: 100px;
 
+}
 
 
 
@@ -568,7 +573,7 @@ display: flex;
 .Section-Group div {
     transform-origin: center;
     will-change: transform;
-    corner-shape: squircle !important;
+    corner-shape: squircle;
 
 }
 
@@ -1021,6 +1026,18 @@ button:hover {
     .SubText {
         margin-top: 60px;
     }
+
+    .ItemStack img {
+
+        width: 100%;
+        height: 15rem !important;
+        object-fit: cover;
+
+    }
+
+    .ItemStacks {
+        padding-bottom: 90px;
+    }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
@@ -1031,6 +1048,14 @@ button:hover {
         text-transform: uppercase;
         font-weight: 800;
         margin-bottom: 1.5rem;
+    }
+
+    .ItemStack img {
+
+        width: 100%;
+        height: 15rem !important;
+        object-fit: cover;
+
     }
 
     .SubText {
@@ -1057,6 +1082,11 @@ button:hover {
         margin-bottom: 40px;
 
     }
+        .ItemStack img {
+
+    width: 260px !important;
+
+}
 }
 
 .Category-Group {
@@ -1075,6 +1105,8 @@ button:hover {
         gap: 80px;
     }
 
+
+
 }
 
 /* Mobile: 1x4 grid (vertical stack) */
@@ -1084,8 +1116,14 @@ button:hover {
         padding: 40px;
         gap: 80px;
     }
-    
+        .ItemStack img {
+
+    width: 100% !important;
+
 }
+
+}
+
 .CategoryItem {
     display: flex;
     flex-direction: column;
@@ -1106,7 +1144,198 @@ button:hover {
     font-size: 16px;
     font-weight: 500;
     color: var(--green-color);
-    
+
     width: 100%;
-      width: 80%;
+    width: 80%;
+}
+
+
+.ItemStacks {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    width: 75%;
+
+    margin-top: 80px;
+    corner-shape: unset !important;
+}
+
+.ItemStack {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    position: relative;
+    justify-content: center;
+    border-radius: 0px 0px 38px 38px;
+    -webkit-border-radius: 0px 0px 38px 38px;
+    -moz-border-radius: 0px 0px 38px 38px;
+    -ms-border-radius: 0px 0px 38px 38px;
+    -o-border-radius: 0px 0px 38px 38px;
+    corner-shape: unset !important;
+
+    /*background-color: red;
+    */
+    overflow: hidden;
+    transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    border: 1px solid var(--green-color);
+}
+
+.ItemStack img {
+
+    width: 370px;
+    height: 22rem;
+    object-fit: cover;
+
+}
+
+
+
+.ItemStackBg {
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+    height: 100% !important;
+    object-fit: cover !important;
+    width: 100% !important;
+    background-color: var(--white-color);
+}
+
+.ItemStack p {
+    padding: 10px 20px 20px 20px;
+    font-weight: 500;
+}
+
+.ItemStack h2 {
+    padding: 20px 20px 0 20px;
+    font-weight: 800;
+    color: var(--green-color);
+}
+
+.ButtonInteract {
+    width: 100%;
+    padding: 15px;
+}
+
+.ButtonInteract .ButtonOn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    scale: 1;
+    cursor: pointer;
+}
+
+.ButtonInteract .ButtonOn p {
+    padding: 16px 0;
+    font-size: 16px;
+    color: var(--white-color);
+}
+
+
+.ButtonInteract .ButtonOn:hover p {
+    color: var(--green-color);
+}
+
+.ItemStack:hover {
+    scale: 1.05;
+    transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+}
+
+.ItemStackActive {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    display: none;
+}
+
+.ItemStackActiveItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    height: 100%;
+    width: auto;
+    position: relative;
+}
+
+.ItemStackActiveItem img:nth-child(1) {
+    width: 60%;
+    height: fit-content;
+    padding-bottom: 40px;
+}
+
+.hr-line-y {
+    height: 1px;
+    width: 100%;
+    background-color: var(--green-color);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.ItemStackActive {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.ItemShareLink {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100%;
+    background-color: var(--white-color);
+}
+
+.ItemShareLink p{
+ margin: 0 !important;
+    padding: 0 !important;
+    
+}
+
+.ItemShareLink img {
+    height: 60px;
+    width: 60px;
+    filter: var(--green-filter-color);
+    -webkit-filter: var(--green-filter-color);
 }

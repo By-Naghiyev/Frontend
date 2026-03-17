@@ -20,18 +20,18 @@
     let appliedZoom = "1";
 
     if (width > 1100 && width <= 1295) {
-      appliedZoom = "0.8";
+      appliedZoom = "0.75";
     }
     else if (width >= 1024 && width <= 1500) {
       if (height >= 720 && height <= 1000) {
-        appliedZoom = "0.85";
+        appliedZoom = "0.8";
       }
       else if (height >= 620 && height < 720) {
-        appliedZoom = "0.8";
+        appliedZoom = "0.75";
       }
     }
     else if (width > 1500 && width <= 1670) {
-      appliedZoom = "0.85";
+      appliedZoom = "0.8";
     }
 
     document.body.style.zoom = appliedZoom;

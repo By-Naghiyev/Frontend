@@ -1,16 +1,20 @@
 // App.js
 import About from "./components/about";
+import Category from "./components/category";
 import Header from "./components/header";
 import Navbar from "./components/navbar";
+import Products from "./components/products";
 import Section from "./components/section"; // import Section
 
 const App = () => {
   return (
     <>
       <Navbar />
-      <Section>  
+      <Section>
         <Header />
         <About />
+        <Category />
+        <Products />
       </Section>
       <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat maiores fugit sed nam asperiores perspiciatis itaque accusamus delectus labore, voluptatibus obcaecati quas numquam aliquid quis, non dolorum qui magni quos.

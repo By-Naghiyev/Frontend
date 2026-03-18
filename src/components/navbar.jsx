@@ -144,7 +144,7 @@ const Navbar = () => {
           <p onClick={(e) => handleNavClick(e, 'about')}>About us</p>
           <p onClick={(e) => handleNavClick(e, 'products')}>Products</p>
           <p onClick={(e) => handleNavClick(e, 'blogs')}>Blogs</p>
-          <p onClick={(e) => handleNavClick(e, 'contact')}>Contact</p>
+          <p onClick={(e) => handleNavClick(e, 'socials')}>Socials</p>
         </div>
 
         <p className="Navbar-Items Items-Center" onClick={(e) => handleNavClick(e, 'home')}>
@@ -210,7 +210,7 @@ const Navbar = () => {
           <p onClick={(e) => handleNavClick(e, 'about')}>About us</p>
           <p onClick={(e) => handleNavClick(e, 'home')}>Products</p>
           <p onClick={(e) => handleNavClick(e, 'projects')}>Blogs</p>
-          <p onClick={(e) => handleNavClick(e, 'contact')}>Contact</p>
+          <p onClick={(e) => handleNavClick(e, 'socials')}>Socials</p>
 
           <div className="mobile-menu-bottom">
             <div className="Navbar-i18n">

@@ -1423,15 +1423,22 @@ z-index: 2;
     padding: 0px;
     gap: 20px;
 }
-
 .Footer-Group .Footer-Section:nth-child(1) {
+    position: relative;
+    overflow: hidden;
+}
+
+.Footer-Group .Footer-Section:nth-child(1)::before {
+    content: "";
+    position: absolute;
+    inset: 0;
     background: url(../assets/svg/footer-bg-1.svg);
     background-repeat: repeat;
-    /* repeats vertically */
     background-size: auto;
-    /* keeps original size */
-    background-position: top left;
-    /* optional starting point */
+    background-position: top right;
+
+    transform: rotate(180deg);
+    z-index: -1;
 }
 
 .Footer-Group .Footer-Section:nth-child(2) {

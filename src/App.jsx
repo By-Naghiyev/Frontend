@@ -6,19 +6,19 @@ import Footer from "./components/footer";
 import Header from "./components/header";
 import Navbar from "./components/navbar";
 import Products from "./components/products";
-import Section from "./components/section"; // import Section
+// import Section from "./components/section"; // import Section
 
 const App = () => {
   return (
     <>
       <Navbar />
-      <Section>
+      {/* <Section> */}
         <Header />
         <About />
         <Category />
         <Products />
         <Blogs />
-      </Section>
+      {/* </Section> */}
       <Footer />
     </>
   );

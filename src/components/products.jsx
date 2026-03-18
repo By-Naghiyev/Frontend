@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import RightSvg from "../assets/svg/right.svg"
 import LeftSvg from "../assets/svg/left.svg"
 import BgBodySvg from "../assets/svg/bg-body1.svg"
-import Product1Img from "../assets/img/Product/product1.png"
+import Product1Img from "../assets/img/product/product1.png"
 import EbaySvg from "../assets/svg/EBay.svg"
 import InstagramSvg from "../assets/svg/instagram.svg"
 

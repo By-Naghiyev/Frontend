@@ -870,7 +870,7 @@ button:hover {
     display: flex;
     justify-content: center;
     gap: 10px;
-    bottom: 0;
+    bottom: 80px;
     /* display: none; */
 }
 

@@ -153,7 +153,7 @@ const Products = () => {
                                                 <img src={InstagramSvg} alt="Instagram" />
                                                 <div className="ButtonInteract">
                                                     <button className='ButtonOn'>
-                                                        <p>Order Now</p>
+                                                        <p>Order in Instagram</p>
                                                     </button>
                                                 </div>
                                                 <img className='ItemStackBg' src={BgBodySvg} alt="Background" />
@@ -163,7 +163,7 @@ const Products = () => {
                                                 <img src={EbaySvg} alt="eBay" />
                                                 <div className="ButtonInteract">
                                                     <button className='ButtonOn'>
-                                                        <p>Order Now</p>
+                                                        <p>Order in EBay</p>
                                                     </button>
                                                 </div>
                                                 <img className='ItemStackBg' src={BgBodySvg} alt="Background" />

@@ -1218,7 +1218,7 @@ button:hover {
     -ms-border-radius: 0px 0px 38px 38px;
     -o-border-radius: 0px 0px 38px 38px;
     corner-shape: unset !important;
-
+z-index: 2;
     /*background-color: red;
     */
     overflow: hidden;
@@ -1316,6 +1316,7 @@ button:hover {
     height: 100%;
     width: auto;
     position: relative;
+    z-index: 3;
 }
 
 .ItemStackActiveItem img:nth-child(1) {
@@ -1328,6 +1329,7 @@ button:hover {
     height: 1px;
     width: 100%;
     background-color: var(--green-color);
+    z-index: 4;
 }
 
 

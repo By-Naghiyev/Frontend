@@ -93,7 +93,7 @@ const Blogs = () => {
                                     <p>{blog.description}</p>
                                     <div className="ButtonInteract">
                                         <button className='ButtonOn'>
-                                            <p>Order Now</p>
+                                            <p>Read more</p>
                                         </button>
                                     </div>
                                     <img className='ItemStackBg' src={BgBodySvg} alt="Background" />

@@ -32,7 +32,7 @@ const Footer = () => {
                     <h2>Newsletter</h2>
                     <div className="Socials-Group">
                                <div className="Button-Group Social-Button-Group">
-                        <button className='ButtonOff'>Email adress</button>
+                        <input type="email" className="ButtonOff InputOn" placeholder="Email address"/>
                         <button className='ButtonOn'>Subscribe</button>
                     </div>
 

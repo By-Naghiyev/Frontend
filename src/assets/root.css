@@ -714,7 +714,14 @@ button:hover {
     height: fit-content;
     background-color: rgba(0, 0, 0, 0.068);
 }
-
+.InputOn {
+    height: 100%;
+    border-radius: 1000px;
+    padding: 20px;
+    font-size: 16px;
+    width: 100%!important;
+    color: var(--white-color);
+}
 .ButtonOff2 {
     border: 1px solid var(--green-color);
     width: fit-content;
@@ -1036,7 +1043,7 @@ button:hover {
     }
 
     .ImageStacks img {
-        scale: 1.05;
+        scale: 0.95;
     }
 
     .SubText {
@@ -1051,9 +1058,36 @@ button:hover {
 
     }
 
+    .Button-Group {
+        display: flex;
+        flex-direction: column;
+    }
+
+
+
     /* .ItemStacks {
         padding-bottom: 90px;
     } */
+
+    .SubSlider {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 0px !important;
+}
+
+.About-Group {
+    padding-bottom: 5rem;
+}
+
+.ImageStacks img:nth-child(2) {
+position: absolute;
+left: 0rem !important;
+top: 0;
+z-index: 0 !important;
+scale: 0.9;
+opacity: 0.5;
+}
 }
 
 @media screen and (min-width: 768px) and (max-width: 1200px) {

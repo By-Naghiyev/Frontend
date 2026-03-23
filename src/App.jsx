@@ -13,36 +13,36 @@ const App = () => {
   return (
     < div className="AdminOn">
         <Navbar />
-        <EditAdmin/>
+        {/* <EditAdmin/> */}
 
         <Header />
-        <EditAdmin/>
+        {/* <EditAdmin/> */}
 
         <ZoomWrapper>
         <About />
         </ZoomWrapper>
-        <EditAdmin/>
+        {/* <EditAdmin/> */}
 
 
         
        
         <Category />
-        <EditAdmin/>
+        {/* <EditAdmin/> */}
       
 
         <ZoomWrapper>
         <Products />
         </ZoomWrapper>
-        <EditAdmin/>
+        {/* <EditAdmin/> */}
 
         <ZoomWrapper>
         <Blogs />
         </ZoomWrapper>
-        <EditAdmin/>
+        {/* <EditAdmin/> */}
 
       
         <Footer />
-        <EditAdmin/>
+        {/* <EditAdmin/> */}
     </div>
   );
 };

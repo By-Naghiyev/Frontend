@@ -8,7 +8,7 @@ const ZoomWrapper = ({ children }) => {
     const width = window.innerWidth;
     
     if (wrapperRef.current) {
-      if (width >= 1200 && width <= 2500) {
+      if (width >= 0 && width <= 2500) {
         wrapperRef.current.style.zoom = "85%";
       } else {
         wrapperRef.current.style.zoom = "100%";

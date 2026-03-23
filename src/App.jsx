@@ -7,20 +7,43 @@ import Header from "./components/header";
 import Navbar from "./components/navbar";
 import Products from "./components/products";
 import ZoomWrapper from "./ZoomWrapper";
+import EditAdmin from "./admin";
 
 const App = () => {
   return (
-    <>
-      <Navbar />
-      <Header />
-      <ZoomWrapper>
+    < div className="AdminOn">
+        <Navbar />
+        <EditAdmin/>
+
+        <Header />
+        <EditAdmin/>
+
+        <ZoomWrapper>
         <About />
+        </ZoomWrapper>
+        <EditAdmin/>
+
+
+        
+       
         <Category />
+        <EditAdmin/>
+      
+
+        <ZoomWrapper>
         <Products />
+        </ZoomWrapper>
+        <EditAdmin/>
+
+        <ZoomWrapper>
         <Blogs />
-      </ZoomWrapper>
-      <Footer />
-    </>
+        </ZoomWrapper>
+        <EditAdmin/>
+
+      
+        <Footer />
+        <EditAdmin/>
+    </div>
   );
 };
 

@@ -27,6 +27,7 @@ body {
     background-color: var(--white-color);
     z-index: 0;
     /* ensure pseudo-element is behind content */
+    
 }
 
 body::before {
@@ -63,8 +64,8 @@ body::before {
     z-index: 1000;
 }
 
-/* Desktop styles (above 1024px) */
-@media (min-width: 1024px) {
+/* Desktop styles (above 1200px) */
+@media (min-width: 1200px) {
     .Navbar-Group {
         background: var(--black-gradient-primary);
         box-shadow: none;
@@ -80,8 +81,8 @@ body::before {
     }
 }
 
-/* Mobile styles (below 1024px) */
-@media (max-width: 1024px) {
+/* Mobile styles (below 1200px) */
+@media (max-width: 1200px) {
     .Navbar-Group {
         background: var(--green-gradient-primary);
         box-shadow: var(--shadow-soft);
@@ -246,7 +247,7 @@ body::before {
 }
 
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1200px) {
     .Navbar-Items-Menu {
         display: none;
     }
@@ -258,7 +259,7 @@ body::before {
 
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1200px) {
 
     .Header-Text-Group p {
         font-size: 20px;
@@ -325,7 +326,7 @@ body::before {
 /* ADD THIS EXACT CODE AT THE BOTTOM - NO CHANGES TO YOUR JSX */
 
 /* Mobile responsive - swap logo and menu places */
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1200px) {
     .Navbar-Group {
         padding-inline: 40px;
         display: flex;
@@ -424,7 +425,7 @@ body::before {
 
     .ImageStacks img {
         height: 400px !important;
-        width: fit-content;
+        width: 100% !important;
     }
 
     .SubSlider {
@@ -910,10 +911,10 @@ button:hover {
 
 .About-Group {
     width: 100%;
-    height: calc(100dvh - 110px);
+    height: fit-content;
     background-color: var(--white-color);
     /* margin: 110px; */
-    padding-top: 5rem;
+    padding: 5rem 0;
 }
 
 .SubSlider {
@@ -953,7 +954,7 @@ button:hover {
 
 .ImageStacks img {
     height: 450px;
-    width: fit-content;
+    width: 100%
 }
 
 .ImageStacks img:nth-child(2) {
@@ -982,6 +983,7 @@ button:hover {
     justify-content: center;
     height: calc(100% - 5rem);
     gap: 80px;
+    margin-top: 5rem;
 }
 
 
@@ -1049,12 +1051,12 @@ button:hover {
 
     }
 
-    .ItemStacks {
+    /* .ItemStacks {
         padding-bottom: 90px;
-    }
+    } */
 }
 
-@media screen and (min-width: 768px) and (max-width: 1024px) {
+@media screen and (min-width: 768px) and (max-width: 1200px) {
     .Header-Text-Group h1 {
         font-size: 50px !important;
         color: var(--white-color);
@@ -1099,7 +1101,7 @@ button:hover {
 
     .ItemStack img {
 
-        width: 260px !important;
+        width: 100% !important;
 
     }
 }
@@ -1113,7 +1115,7 @@ button:hover {
 }
 
 /* Tablet: 2x2 grid */
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1200px) {
     .Category-Group {
         grid-template-columns: repeat(2, 1fr);
         padding: 60px;
@@ -1200,9 +1202,9 @@ button:hover {
     align-items: center;
     justify-content: center;
     gap: 30px;
-    width: 75%;
+    width: 80%;
 
-    margin-top: 80px;
+    /* margin-top: 80px; */
     corner-shape: unset !important;
 }
 
@@ -1232,12 +1234,17 @@ z-index: 2;
 
 .ItemStack img {
 
-    width: 370px;
+    width: 100%;
+    min-width: 320px !important;
+    max-width: 320px !important;
     height: 22rem;
     object-fit: cover;
 
 }
 
+.ImageStacks img {
+    object-fit: cover;
+}
 
 
 .ItemStackBg {
@@ -1510,7 +1517,7 @@ z-index: 2;
 }
 
 /* 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1200px) {
     .LogoSection img {
         height: 3.8vw !important;
         width: fit-content !important;
@@ -1544,4 +1551,20 @@ z-index: 2;
     scale: 1.3;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
+}
+
+
+.Login-Page {
+    display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100dvh;
+}
+
+.Login {
+    background-color: var(--white-color);
+    width: 100%;
+    height: 100%;
+
 }

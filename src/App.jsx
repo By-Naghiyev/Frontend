@@ -6,19 +6,19 @@ import Footer from "./components/footer";
 import Header from "./components/header";
 import Navbar from "./components/navbar";
 import Products from "./components/products";
-// import Section from "./components/section"; // import Section
+import ZoomWrapper from "./ZoomWrapper";
 
 const App = () => {
   return (
     <>
       <Navbar />
-      {/* <Section> */}
-        <Header />
+      <Header />
+      <ZoomWrapper>
         <About />
         <Category />
         <Products />
         <Blogs />
-      {/* </Section> */}
+      </ZoomWrapper>
       <Footer />
     </>
   );

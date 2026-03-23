@@ -32,6 +32,8 @@ const Products = () => {
                 setItemsToShow(1);
             } else if (window.innerWidth < 1024) {
                 setItemsToShow(2);
+            } else if (window.innerWidth < 1204) {
+                setItemsToShow(3);
             } else {
                 setItemsToShow(4);
             }

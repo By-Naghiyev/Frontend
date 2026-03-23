@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-85" />
     <link rel="icon" type="image/svg+xml" href="/src/assets/svg/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>By Naghiyev</title>
@@ -9,50 +9,8 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-    <script>
-      
-(function () {
 
-  function adjustZoom() {
-    const width = window.innerWidth;
-    const height = window.innerHeight;
-    const headerGroup = document.querySelector(".Header-Group");
-    let appliedZoom = "1";
 
-    if (width > 1100 && width <= 1295) {
-      appliedZoom = "0.75";
-    }
-    else if (width >= 1024 && width <= 1500) {
-      if (height >= 720 && height <= 1000) {
-        appliedZoom = "0.8";
-      }
-      else if (height >= 620 && height < 720) {
-        appliedZoom = "0.75";
-      }
-    }
-    else if (width > 1500 && width <= 1670) {
-      appliedZoom = "0.8";
-    }
-
-    document.body.style.zoom = appliedZoom;
-
-    document.body.classList.toggle("zoom-08", appliedZoom === "0.8");
-    document.body.classList.toggle("zoom-085", appliedZoom === "0.85");
-
-    if (headerGroup) {
-      if (width >= 1024 && height < 730) {
-        headerGroup.style.height = "85dvh";
-      } else {
-        headerGroup.style.height = "";
-      }
-    }
-  }
-
-  document.addEventListener("DOMContentLoaded", adjustZoom);
-  window.addEventListener("resize", adjustZoom);
-
-})();
-    </script>
 
     <script>
       document.addEventListener('DOMContentLoaded', function() {

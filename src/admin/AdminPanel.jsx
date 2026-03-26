@@ -6,7 +6,7 @@ import AboutEditor   from './editors/AboutEditor';
 import ProductsEditor from './editors/ProductsEditor';
 import BlogsEditor   from './editors/BlogsEditor';
 import FooterEditor  from './editors/FooterEditor';
-import LogoSvg from '../assets/svg/logo.svg';
+import LogoSvg from '../../public/_redirects/assets/svg/logo.svg';
 
 // ── ICONS ──────────────────────────────────────────────────────────────────
 const Icon = ({ path }) => (

@@ -1,13 +1,22 @@
 // config/github.js
+
+const requiredEnv = (key) => {
+  const value = import.meta.env[key];
+  if (!value) {
+    console.warn(`Missing environment variable: ${key}`);
+  }
+  return value;
+};
+
 export const GITHUB_CONFIG = {
-  owner:    import.meta.env.VITE_GITHUB_OWNER   || "kenanmusali",
-  repo:     import.meta.env.VITE_GITHUB_REPO    || "bynaghiyev",
-  branch:   import.meta.env.VITE_GITHUB_BRANCH  || "main",
-  dataFile: import.meta.env.VITE_GITHUB_DATA_PATH || "src/data/site-data.json",
-  token:    import.meta.env.VITE_GITHUB_TOKEN   || "",
+  owner: requiredEnv("VITE_GITHUB_OWNER"),
+  repo: requiredEnv("VITE_GITHUB_REPO"),
+  branch: requiredEnv("VITE_GITHUB_BRANCH") || "main",
+  dataFile: requiredEnv("VITE_GITHUB_DATA_PATH") || "src/data/site-data.json",
+  token: requiredEnv("VITE_GITHUB_TOKEN"), // ✅ ONLY from env, no fallback
 };
 
 export const ADMIN_CREDENTIALS = {
-  email:    import.meta.env.VITE_ADMIN_EMAIL    || "admin@bynaghiyev.com",
-  password: import.meta.env.VITE_ADMIN_PASSWORD || "Hello1234",
+  email: requiredEnv("VITE_ADMIN_EMAIL"),
+  password: requiredEnv("VITE_ADMIN_PASSWORD"),
 };

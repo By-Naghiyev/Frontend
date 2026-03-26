@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-// import Image from "../assets/Frame_error.png"
+// import Image from "../../public/_redirects/assets/Frame_error.png"
 const Error = () => {
     return (
         <>

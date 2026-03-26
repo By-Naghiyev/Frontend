@@ -1,8 +1,8 @@
 import React from 'react'
-import Items1Svg from '../assets/svg/volunteer_activism.svg'
-import Items2Svg from '../assets/svg/deployed_code.svg'
-import Items3Svg from '../assets/svg/asterisk.svg'
-import Items4Svg from '../assets/svg/psychiatry.svg'
+import Items1Svg from '../../public/_redirects/assets/svg/volunteer_activism.svg'
+import Items2Svg from '../../public/_redirects/assets/svg/deployed_code.svg'
+import Items3Svg from '../../public/_redirects/assets/svg/asterisk.svg'
+import Items4Svg from '../../public/_redirects/assets/svg/psychiatry.svg'
 
 const Category = () => {
   return (

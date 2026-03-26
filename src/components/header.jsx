@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react'
-import RightSvg from "../assets/svg/right.svg"
-import LeftSvg  from "../assets/svg/left.svg"
+import RightSvg from "../../public/_redirects/assets/svg/right.svg"
+import LeftSvg  from "../../public/_redirects/assets/svg/left.svg"
 
 // Fallback local images (still used if no remote data)
-import Header1Img from "../assets/img/header/header1.png"
-import Header2Img from "../assets/img/header/header2.png"
+import Header1Img from "../../public/_redirects/assets/img/header/header1.png"
+import Header2Img from "../../public/_redirects/assets/img/header/header2.png"
 
 const DEFAULT_DATA = {
   subtitle:  "HAND MADE LUXURY",

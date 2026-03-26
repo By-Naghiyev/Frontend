@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react'
-import LogoSvg      from "../assets/svg/logo.svg"
-import LogoTextSvg  from "../assets/svg/logo-text.svg"
-import MenuSvg      from "../assets/svg/menu.svg"
-import CloseSvg     from "../assets/svg/close.svg"
-import AzImg        from "../assets/img/az_i18n.png"
-import bgSvg        from "../assets/svg/bg-pattern.svg"
-import EnImg        from "../assets/img/en_i18n.png"
-import AutoSvg      from "../assets/svg/auto_theme.svg"
-import LightSvg     from "../assets/svg/light_theme.svg"
-import DarkSvg      from "../assets/svg/dark_theme.svg"
+import LogoSvg      from "../../public/_redirects/assets/svg/logo.svg"
+import LogoTextSvg  from "../../public/_redirects/assets/svg/logo-text.svg"
+import MenuSvg      from "../../public/_redirects/assets/svg/menu.svg"
+import CloseSvg     from "../../public/_redirects/assets/svg/close.svg"
+import AzImg        from "../../public/_redirects/assets/img/navbar/az_i18n.png"
+import bgSvg        from "../../public/_redirects/assets/svg/bg-pattern.svg"
+import EnImg        from "../../public/_redirects/assets/img/navbar/en_i18n.png"
+import AutoSvg      from "../../public/_redirects/assets/svg/auto_theme.svg"
+import LightSvg     from "../../public/_redirects/assets/svg/light_theme.svg"
+import DarkSvg      from "../../public/_redirects/assets/svg/dark_theme.svg"
 
 // navData shape: { items: [{ id, label, target }] }
 const Navbar = ({ navData }) => {

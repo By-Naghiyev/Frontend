@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import './assets/root.css'
+import '../public/_redirects/assets/root.css'
 import App from './App.jsx'
 import AdminApp from './admin/AdminApp.jsx'
 import NotFound from './components/notfound.jsx'

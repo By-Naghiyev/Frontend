@@ -1,12 +1,12 @@
 import React from 'react'
-import Section1Svg from '../assets/svg/footer-bg-1.svg'
-import Section2Svg from '../assets/svg/footer-bg-2.svg'
-import Socail1Svg  from '../assets/svg/ebayIcon.svg'
-import Socail2Svg  from '../assets/svg/instagramIcon.svg'
-import Socail3Svg  from '../assets/svg/xIcon.svg'
-import Socail4Svg  from '../assets/svg/whatsaapIcon.svg'
-import Socail5Svg  from '../assets/svg/youtubeIcon.svg'
-import LogoSvg     from '../assets/svg/logo.svg'
+import Section1Svg from '../../public/_redirects/assets/svg/footer-bg-1.svg'
+import Section2Svg from '../../public/_redirects/assets/svg/footer-bg-2.svg'
+import Socail1Svg  from '../../public/_redirects/assets/svg/ebayIcon.svg'
+import Socail2Svg  from '../../public/_redirects/assets/svg/instagramIcon.svg'
+import Socail3Svg  from '../../public/_redirects/assets/svg/xIcon.svg'
+import Socail4Svg  from '../../public/_redirects/assets/svg/whatsaapIcon.svg'
+import Socail5Svg  from '../../public/_redirects/assets/svg/youtubeIcon.svg'
+import LogoSvg     from '../../public/_redirects/assets/svg/logo.svg'
 
 const DEFAULT_DATA = {
   tagline:      "Turn your home into work of art. The right address for aesthetic touch and positive energy",

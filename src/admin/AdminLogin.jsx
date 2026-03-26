@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ADMIN_CREDENTIALS } from '../config/github';
-import LogoSvg from '../assets/svg/logo.svg';
+import LogoSvg from '../../public/_redirects/assets/svg/logo.svg';
 
 const AdminLogin = ({ onLogin }) => {
   const [email, setEmail]       = useState('');

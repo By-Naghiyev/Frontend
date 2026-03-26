@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react'
-import RightSvg    from "../assets/svg/right.svg"
-import LeftSvg     from "../assets/svg/left.svg"
-import BgBodySvg   from "../assets/svg/bg-body1.svg"
-import Product1Img from "../assets/img/product/product1.png"
-import EbaySvg     from "../assets/svg/EBay.svg"
-import InstagramSvg from "../assets/svg/instagram.svg"
+import RightSvg    from "../../public/_redirects/assets/svg/right.svg"
+import LeftSvg     from "../../public/_redirects/assets/svg/left.svg"
+import BgBodySvg   from "../../public/_redirects/assets/svg/bg-body1.svg"
+import Product1Img from "../../public/_redirects/assets/img/product/product1.png"
+import EbaySvg     from "../../public/_redirects/assets/svg/EBay.svg"
+import InstagramSvg from "../../public/_redirects/assets/svg/instagram.svg"
 
 const DEFAULT_ITEMS = Array.from({ length: 8 }, (_, i) => ({
   id: `p${i+1}`, name: `Scented Candle ${i+1}`,

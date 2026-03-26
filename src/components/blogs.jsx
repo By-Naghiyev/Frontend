@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react'
-import RightSvg  from "../assets/svg/right.svg"
-import LeftSvg   from "../assets/svg/left.svg"
-import BgBodySvg from "../assets/svg/bg-body1.svg"
-import Blogs1Img from "../assets/img/blogs/blogs1.png"
+import RightSvg  from "../../public/_redirects/assets/svg/right.svg"
+import LeftSvg   from "../../public/_redirects/assets/svg/left.svg"
+import BgBodySvg from "../../public/_redirects/assets/svg/bg-body1.svg"
+import Blogs1Img from "../../public/_redirects/assets/img/blogs/blogs1.png"
 
 const DEFAULT_ITEMS = Array.from({ length: 4 }, (_, i) => ({
   id: `b${i+1}`,

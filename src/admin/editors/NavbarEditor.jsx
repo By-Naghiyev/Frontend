@@ -1,11 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const NavbarEditor = ({ data, onChange }) => {
-  const [items, setItems] = useState(data.navbar.items || []);
+  // Defensive: always fall back to empty array if data or navbar is missing
+  const [items, setItems] = useState((data?.navbar?.items) || []);
+
+  // Keep in sync if parent data changes
+  useEffect(() => {
+    setItems(data?.navbar?.items || []);
+  }, [data?.navbar?.items]);
 
   const update = (newItems) => {
     setItems(newItems);
-    onChange({ ...data, navbar: { ...data.navbar, items: newItems } });
+    onChange({ ...data, navbar: { ...(data?.navbar || {}), items: newItems } });
   };
 
   const addItem = () => {
@@ -19,13 +25,31 @@ const NavbarEditor = ({ data, onChange }) => {
     update(items.map(i => i.id === id ? { ...i, [field]: value } : i));
   };
 
+  const moveItem = (idx, dir) => {
+    const next = [...items];
+    const swap = idx + dir;
+    if (swap < 0 || swap >= next.length) return;
+    [next[idx], next[swap]] = [next[swap], next[idx]];
+    update(next);
+  };
+
+  // Sections in the site so admin knows valid targets
+  const KNOWN_TARGETS = [
+    { target: 'about',    label: 'About Us'  },
+    { target: 'category', label: 'Category'  },
+    { target: 'products', label: 'Products'  },
+    { target: 'blogs',    label: 'Blogs'     },
+    { target: 'footer',   label: 'Footer'    },
+    { target: 'socials',  label: 'Socials'   },
+  ];
+
   return (
     <div>
       <div className="adm-card">
         <div className="adm-card-header">
           <div>
             <div className="adm-card-title">Navigation Items</div>
-            <div className="adm-card-subtitle">Add, rename, or remove navbar links</div>
+            <div className="adm-card-subtitle">Add, rename, or reorder navbar links. <strong>Target</strong> must match the section's HTML id on the page.</div>
           </div>
           <button className="adm-btn adm-btn-secondary adm-btn-sm" onClick={addItem}>
             + Add Link
@@ -35,11 +59,26 @@ const NavbarEditor = ({ data, onChange }) => {
         <div className="adm-list">
           {items.map((item, idx) => (
             <div key={item.id} className="adm-list-item">
-              <div className="adm-drag-handle" title="Drag to reorder">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
-                </svg>
+              {/* Up/down reorder */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                <button
+                  type="button"
+                  className="adm-btn adm-btn-ghost adm-btn-sm adm-btn-icon"
+                  onClick={() => moveItem(idx, -1)}
+                  disabled={idx === 0}
+                  title="Move up"
+                  style={{ padding: '2px 6px' }}
+                >▲</button>
+                <button
+                  type="button"
+                  className="adm-btn adm-btn-ghost adm-btn-sm adm-btn-icon"
+                  onClick={() => moveItem(idx, 1)}
+                  disabled={idx === items.length - 1}
+                  title="Move down"
+                  style={{ padding: '2px 6px' }}
+                >▼</button>
               </div>
+
               <div className="adm-list-item-body">
                 <div className="adm-row">
                   <div className="adm-field">
@@ -55,13 +94,23 @@ const NavbarEditor = ({ data, onChange }) => {
                     <label className="adm-label">Section ID (scroll target)</label>
                     <input
                       className="adm-input"
+                      list={`targets-${item.id}`}
                       value={item.target}
                       onChange={e => editItem(item.id, 'target', e.target.value)}
                       placeholder="e.g. about"
                     />
+                    <datalist id={`targets-${item.id}`}>
+                      {KNOWN_TARGETS.map(t => (
+                        <option key={t.target} value={t.target}>{t.label}</option>
+                      ))}
+                    </datalist>
+                    <span style={{ fontSize: 11, color: 'var(--a-muted)', marginTop: 3, display: 'block' }}>
+                      Suggestions: {KNOWN_TARGETS.map(t => t.target).join(', ')}
+                    </span>
                   </div>
                 </div>
               </div>
+
               <div className="adm-list-item-actions">
                 <button
                   className="adm-btn adm-btn-danger adm-btn-sm adm-btn-icon"
@@ -86,6 +135,7 @@ const NavbarEditor = ({ data, onChange }) => {
         </button>
       </div>
 
+      {/* Preview */}
       <div className="adm-card">
         <div className="adm-card-header">
           <div>
@@ -93,12 +143,12 @@ const NavbarEditor = ({ data, onChange }) => {
             <div className="adm-card-subtitle">How the navbar links look</div>
           </div>
         </div>
-        <div style={{ display:'flex', gap:'24px', flexWrap:'wrap', padding:'12px 0' }}>
+        <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', padding: '12px 0' }}>
           {items.map(i => (
             <span key={i.id} style={{
-              padding:'6px 14px', borderRadius:'20px',
-              background:'#1F4A44', color:'white',
-              fontSize:'13px', fontWeight:600
+              padding: '6px 14px', borderRadius: 20,
+              background: '#1F4A44', color: 'white',
+              fontSize: 13, fontWeight: 600,
             }}>
               {i.label || '(empty)'}
             </span>

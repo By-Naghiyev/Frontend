@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { saveSiteData } from '../services/githubService';
-import NavbarEditor  from './editors/NavbarEditor';
-import HeaderEditor  from './editors/HeaderEditor';
-import AboutEditor   from './editors/AboutEditor';
+import NavbarEditor   from './editors/NavbarEditor';
+import HeaderEditor   from './editors/HeaderEditor';
+import AboutEditor    from './editors/AboutEditor';
 import ProductsEditor from './editors/ProductsEditor';
-import BlogsEditor   from './editors/BlogsEditor';
-import FooterEditor  from './editors/FooterEditor';
+import BlogsEditor    from './editors/BlogsEditor';
+import FooterEditor   from './editors/FooterEditor';
+import CategoryEditor from './editors/CategoryEditor';
 import LogoSvg from '../../public/_redirects/assets/svg/logo.svg';
 
 // ── ICONS ──────────────────────────────────────────────────────────────────
 const Icon = ({ path }) => (
-  <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" style={{flexShrink:0}}>
+  <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" style={{ flexShrink: 0 }}>
     <path d={path} />
   </svg>
 );
@@ -18,6 +19,7 @@ const ICONS = {
   navbar:   "M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z",
   header:   "M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zM5 10h14v2H5z",
   about:    "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z",
+  category: "M12 2l-5.5 9h11L12 2zm0 3.84L14.93 10H9.07L12 5.84zM17.5 13c-2.49 0-4.5 2.01-4.5 4.5S15.01 22 17.5 22 22 19.99 22 17.5 19.99 13 17.5 13zm0 7c-1.38 0-2.5-1.12-2.5-2.5S16.12 15 17.5 15 20 16.12 20 17.5 18.88 20 17.5 20zM3 21.5h8v-8H3v8zm2-6h4v4H5v-4z",
   products: "M20 4H4v2l8 5 8-5V4zM4 8.58V20h16V8.58l-8 5-8-5z",
   blogs:    "M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z",
   footer:   "M20 20H4V4h16v16zM6 6v4h12V6H6zm0 6v2h12v-2H6zm0 4v2h7v-2H6z",
@@ -25,24 +27,28 @@ const ICONS = {
 };
 
 const SECTIONS = [
-  { id: 'navbar',   label: 'Navbar',   icon: ICONS.navbar,   Component: NavbarEditor   },
-  { id: 'header',   label: 'Header',   icon: ICONS.header,   Component: HeaderEditor   },
-  { id: 'about',    label: 'About Us', icon: ICONS.about,    Component: AboutEditor    },
-  { id: 'products', label: 'Products', icon: ICONS.products, Component: ProductsEditor },
-  { id: 'blogs',    label: 'Blogs',    icon: ICONS.blogs,    Component: BlogsEditor    },
-  { id: 'footer',   label: 'Footer',   icon: ICONS.footer,   Component: FooterEditor   },
+  { id: 'navbar',   label: 'Navbar',     icon: ICONS.navbar,   Component: NavbarEditor   },
+  { id: 'header',   label: 'Header',     icon: ICONS.header,   Component: HeaderEditor   },
+  { id: 'about',    label: 'About Us',   icon: ICONS.about,    Component: AboutEditor    },
+  { id: 'category', label: 'Category',   icon: ICONS.category, Component: CategoryEditor },
+  { id: 'products', label: 'Products',   icon: ICONS.products, Component: ProductsEditor },
+  { id: 'blogs',    label: 'Blogs',      icon: ICONS.blogs,    Component: BlogsEditor    },
+  { id: 'footer',   label: 'Footer',     icon: ICONS.footer,   Component: FooterEditor   },
 ];
 
-// ── COMPONENT ───────────────────────────────────────────────────────────────
+// ── COMPONENT ────────────────────────────────────────────────────────────────
 const AdminPanel = ({ initialData, onLogout }) => {
   const [activeSection, setActiveSection] = useState('navbar');
   const [data,    setData]    = useState(initialData);
   const [dirty,   setDirty]   = useState(false);
   const [saving,  setSaving]  = useState(false);
-  const [alert,   setAlert]   = useState(null); // { type, message }
+  const [alert,   setAlert]   = useState(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  // auto-dismiss alert
+  // Sync if parent re-provides initialData (e.g. after re-login)
+  useEffect(() => { setData(initialData); setDirty(false); }, [initialData]);
+
+  // Auto-dismiss alert
   useEffect(() => {
     if (!alert) return;
     const t = setTimeout(() => setAlert(null), 4000);
@@ -72,6 +78,9 @@ const AdminPanel = ({ initialData, onLogout }) => {
       setDirty(false);
     }
   };
+
+  // Guard: don't render editors if data is somehow missing a required key
+  if (!data) return null;
 
   const current = SECTIONS.find(s => s.id === activeSection);
 
@@ -110,7 +119,7 @@ const AdminPanel = ({ initialData, onLogout }) => {
               <Icon path={sec.icon} />
               {sec.label}
               {dirty && activeSection === sec.id && (
-                <span style={{marginLeft:'auto', width:7, height:7, borderRadius:'50%', background:'#F2FDFB', flexShrink:0}} />
+                <span style={{ marginLeft: 'auto', width: 7, height: 7, borderRadius: '50%', background: '#F2FDFB', flexShrink: 0 }} />
               )}
             </div>
           ))}
@@ -150,15 +159,20 @@ const AdminPanel = ({ initialData, onLogout }) => {
 
         {/* Alert */}
         {alert && (
-          <div style={{padding:'0 28px', marginTop:16}}>
+          <div style={{ padding: '0 28px', marginTop: 16 }}>
             <div className={`adm-alert adm-alert-${alert.type}`}>{alert.message}</div>
           </div>
         )}
 
         {/* Editor content */}
         <div className="adm-content">
-          {current && (
+          {current && data[current.id] !== undefined && (
             <current.Component data={data} onChange={handleChange} />
+          )}
+          {current && data[current.id] === undefined && (
+            <div style={{ padding: 24, color: 'var(--a-muted)' }}>
+              Section data not found. Save defaults first.
+            </div>
           )}
         </div>
 

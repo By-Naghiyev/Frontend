@@ -30,6 +30,14 @@
       { "id": "a3", "url": "/assets/img/about/about3.png", "alt": "About 3" }
     ]
   },
+  "category": {
+    "title": "Category",
+    "items": [
+      { "id": "cat1", "label": "Candles",    "icon": "🕯️", "image": "" },
+      { "id": "cat2", "label": "Epoxy Pots", "icon": "🏺", "image": "" },
+      { "id": "cat3", "label": "Decor",      "icon": "🎨", "image": "" }
+    ]
+  },
   "products": {
     "title": "Products",
     "items": [
@@ -46,10 +54,10 @@
   "blogs": {
     "title": "Blogs",
     "items": [
-      { "id": "b1", "title": "Blog Post 1", "description": "Natural Waxes & Essential Oils", "image": "/assets/img/blogs/blogs1.png" },
-      { "id": "b2", "title": "Blog Post 2", "description": "Natural Waxes & Essential Oils", "image": "/assets/img/blogs/blogs1.png" },
-      { "id": "b3", "title": "Blog Post 3", "description": "Natural Waxes & Essential Oils", "image": "/assets/img/blogs/blogs1.png" },
-      { "id": "b4", "title": "Blog Post 4", "description": "Natural Waxes & Essential Oils", "image": "/assets/img/blogs/blogs1.png" }
+      { "id": "b1", "title": "Blog Post 1", "description": "Natural Waxes & Essential Oils", "body": "", "image": "/assets/img/blogs/blogs1.png", "images": [] },
+      { "id": "b2", "title": "Blog Post 2", "description": "Natural Waxes & Essential Oils", "body": "", "image": "/assets/img/blogs/blogs1.png", "images": [] },
+      { "id": "b3", "title": "Blog Post 3", "description": "Natural Waxes & Essential Oils", "body": "", "image": "/assets/img/blogs/blogs1.png", "images": [] },
+      { "id": "b4", "title": "Blog Post 4", "description": "Natural Waxes & Essential Oils", "body": "", "image": "/assets/img/blogs/blogs1.png", "images": [] }
     ]
   },
   "footer": {

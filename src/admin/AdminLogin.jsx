@@ -3,26 +3,38 @@ import { ADMIN_CREDENTIALS } from '../config/github';
 import LogoSvg from '../../public/_redirects/assets/svg/logo.svg';
 
 const AdminLogin = ({ onLogin }) => {
-  const [email, setEmail]       = useState('');
+  const [email,    setEmail]    = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError]       = useState('');
-  const [loading, setLoading]   = useState(false);
+  const [error,    setError]    = useState('');
+  const [loading,  setLoading]  = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
     setLoading(true);
-    // Simulate slight delay for UX
+
     await new Promise(r => setTimeout(r, 500));
+
+    // Guard: env vars may be undefined if .env is not configured
+    const expectedEmail    = ADMIN_CREDENTIALS?.email    ?? '';
+    const expectedPassword = ADMIN_CREDENTIALS?.password ?? '';
+
+    if (!expectedEmail || !expectedPassword) {
+      setError('Admin credentials are not configured. Please set VITE_ADMIN_EMAIL and VITE_ADMIN_PASSWORD in your .env file.');
+      setLoading(false);
+      return;
+    }
+
     if (
-      email.trim().toLowerCase() === ADMIN_CREDENTIALS.email.toLowerCase() &&
-      password === ADMIN_CREDENTIALS.password
+      email.trim().toLowerCase() === expectedEmail.toLowerCase() &&
+      password === expectedPassword
     ) {
       sessionStorage.setItem('adm_auth', '1');
       onLogin();
     } else {
       setError('Invalid email or password.');
     }
+
     setLoading(false);
   };
 

@@ -1,35 +1,38 @@
-import React from 'react'
-import Items1Svg from '../../public/_redirects/assets/svg/volunteer_activism.svg'
-import Items2Svg from '../../public/_redirects/assets/svg/deployed_code.svg'
-import Items3Svg from '../../public/_redirects/assets/svg/asterisk.svg'
-import Items4Svg from '../../public/_redirects/assets/svg/psychiatry.svg'
+  import React from 'react';
+  import Items1Svg from '../../public/_redirects/assets/svg/volunteer_activism.svg';
+  import Items2Svg from '../../public/_redirects/assets/svg/deployed_code.svg';
+  import Items3Svg from '../../public/_redirects/assets/svg/asterisk.svg';
+  import Items4Svg from '../../public/_redirects/assets/svg/psychiatry.svg';
 
-const Category = () => {
-  return (
-    <div className='Category-Group'>
-      <div className="CategoryItem">
-        <img src={Items1Svg} />
-        <h2>Hand Made</h2>
-        <p>Carefully crafted by hand with attention to fine detail, ensuring every piece is unique.</p>
-      </div>
-      <div className="CategoryItem">
-        <img src={Items2Svg} />
-        <h2>Premium Materials</h2>
-        <p>We use high-quality wax, resin, and plaster for durability, safety, and refined finish.</p>
-      </div>
-      <div className="CategoryItem">
-        <img src={Items3Svg} />
-        <h2>Modern Design</h2>
-        <p>We use high-quality wax, resin, and plaster for durability, safety, and refined finish.</p>
-      </div>
-      <div className="CategoryItem">
-        <img src={Items4Svg} />
-        <h2>Eco Conscious</h2>
-        <p>Thoughtfully sourced materials and responsible production practices.</p>
-      </div>
+  const Category = ({ data }) => {
+    const categories = data?.category?.items || [
+      { id: '1', title: 'Hand Made', description: 'Carefully crafted by hand with attention to fine detail, ensuring every piece is unique.', icon: 'icon1' },
+      { id: '2', title: 'Premium Materials', description: 'We use high-quality wax, resin, and plaster for durability, safety, and refined finish.', icon: 'icon2' },
+      { id: '3', title: 'Modern Design', description: 'We use high-quality wax, resin, and plaster for durability, safety, and refined finish.', icon: 'icon3' },
+      { id: '4', title: 'Eco Conscious', description: 'Thoughtfully sourced materials and responsible production practices.', icon: 'icon4' },
+    ];
 
-    </div>
-  )
-}
+    const getIcon = (iconId) => {
+      const icons = {
+        icon1: Items1Svg,
+        icon2: Items2Svg,
+        icon3: Items3Svg,
+        icon4: Items4Svg,
+      };
+      return icons[iconId] || Items1Svg;
+    };
 
-export default Category
+    return (
+      <div className='Category-Group'>
+        {categories.map((category) => (
+          <div key={category.id} className="CategoryItem">
+            <img src={getIcon(category.icon)} alt={category.title} />
+            <h2>{category.title}</h2>
+            <p>{category.description}</p>
+          </div>
+        ))}
+      </div>
+    );
+  };
+
+  export default Category;

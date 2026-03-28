@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { uploadImage, listRepoImages } from '../services/githubService';
 
 // Folders available for browsing
-const FOLDERS = ['all', 'header', 'about', 'product', 'blogs', 'category'];
+const FOLDERS = ['all', 'header', 'about', 'product', 'blogs'];
 
 const ImageUploader = ({ currentUrl, onImageUploaded, folder, label = 'Image' }) => {
   const [uploading,   setUploading]   = useState(false);

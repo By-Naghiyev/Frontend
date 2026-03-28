@@ -1,154 +1,319 @@
 import React, { useState, useEffect } from 'react';
-import ImageUploader from '../../components/ImageUploader';
+import Items1Svg from '../../../public/_redirects/assets/svg/volunteer_activism.svg';
+import Items2Svg from '../../../public/_redirects/assets/svg/deployed_code.svg';
+import Items3Svg from '../../../public/_redirects/assets/svg/asterisk.svg';
+import Items4Svg from '../../../public/_redirects/assets/svg/psychiatry.svg';
 
-const EMPTY_CATEGORY = () => ({
-  id: `cat${Date.now()}`,
-  label: '',
-  icon: '',
-  image: '',
-});
+const AVAILABLE_ICONS = [
+  { id: 'icon1', svg: Items1Svg, name: 'Hand Made Icon' },
+  { id: 'icon2', svg: Items2Svg, name: 'Premium Icon' },
+  { id: 'icon3', svg: Items3Svg, name: 'Modern Icon' },
+  { id: 'icon4', svg: Items4Svg, name: 'Eco Icon' },
+];
+
+// DEFAULT CATEGORIES - SAME AS YOUR CATEGORY.JSX
+const DEFAULT_CATEGORIES = [
+  { 
+    id: '1', 
+    title: 'Hand Made', 
+    description: 'Carefully crafted by hand with attention to fine detail, ensuring every piece is unique.', 
+    icon: 'icon1' 
+  },
+  { 
+    id: '2', 
+    title: 'Premium Materials', 
+    description: 'We use high-quality wax, resin, and plaster for durability, safety, and refined finish.', 
+    icon: 'icon2' 
+  },
+  { 
+    id: '3', 
+    title: 'Modern Design', 
+    description: 'We use high-quality wax, resin, and plaster for durability, safety, and refined finish.', 
+    icon: 'icon3' 
+  },
+  { 
+    id: '4', 
+    title: 'Eco Conscious', 
+    description: 'Thoughtfully sourced materials and responsible production practices.', 
+    icon: 'icon4' 
+  },
+];
 
 const CategoryEditor = ({ data, onChange }) => {
-  const [category, setCategory] = useState(
-    data?.category || { title: 'Category', items: [] }
-  );
+  const [categories, setCategories] = useState(DEFAULT_CATEGORIES);
 
-  useEffect(() => {
-    if (data?.category) setCategory(data.category);
-  }, [data?.category]);
+  // Load categories from data whenever it changes
+useEffect(() => {
+  console.log('=== CATEGORY EDITOR DEBUG ===');
+  console.log('Received data prop:', data);
 
-  const update = (patch) => {
-    const next = { ...category, ...patch };
-    setCategory(next);
+  let loadedCategories = null;
 
-    // Sync title to navbar item whose target === 'category'
-    let navbar = data?.navbar || { items: [] };
-    if (patch.title !== undefined) {
-      const navItems = (navbar.items || []).map(item =>
-        item.target === 'category' ? { ...item, label: patch.title } : item
-      );
-      navbar = { ...navbar, items: navItems };
+  if (data) {
+    if (data.category?.items?.length) {
+      loadedCategories = data.category.items;
+      console.log('✅ Loaded from data.category.items');
+    } else if (data.items?.length) {
+      loadedCategories = data.items;
+      console.log('✅ Loaded from data.items');
+    } else if (Array.isArray(data) && data.length) {
+      loadedCategories = data;
+      console.log('✅ Loaded from direct array');
     }
+  }
 
-    onChange({ ...data, category: next, navbar });
+  // ✅ ONLY update if real data exists
+  if (loadedCategories) {
+    console.log('Setting categories to:', loadedCategories);
+    setCategories(loadedCategories);
+  }
+
+  // ❌ REMOVE THIS (this is your bug)
+  // else {
+  //   setCategories(DEFAULT_CATEGORIES);
+  // }
+
+}, [data]);
+
+  // Save to parent whenever categories change
+  const updateCategories = (newCategories) => {
+    setCategories(newCategories);
+    if (onChange) {
+      const updatedData = {
+        ...data,
+        category: {
+          items: newCategories
+        }
+      };
+      console.log('💾 Saving to parent:', updatedData);
+      onChange(updatedData);
+    }
   };
 
-  const updateItem = (id, field, value) => {
-    update({ items: (category.items || []).map(c => c.id === id ? { ...c, [field]: value } : c) });
+  const addCategory = () => {
+    const newCategory = {
+      id: Date.now().toString(),
+      title: 'New Category',
+      description: 'Enter description here',
+      icon: 'icon1'
+    };
+    updateCategories([...categories, newCategory]);
   };
 
-  const addItem = () => {
-    const item = EMPTY_CATEGORY();
-    update({ items: [...(category.items || []), item] });
+  const deleteCategory = (id) => {
+    if (categories.length === 1) {
+      alert('Cannot delete the last category');
+      return;
+    }
+    updateCategories(categories.filter(cat => cat.id !== id));
   };
 
-  const duplicateItem = (id) => {
-    const src = (category.items || []).find(c => c.id === id);
-    if (!src) return;
-    const copy = { ...src, id: `cat${Date.now()}`, label: src.label + ' (copy)' };
-    const items = [...(category.items || [])];
-    const idx = items.findIndex(c => c.id === id);
-    items.splice(idx + 1, 0, copy);
-    update({ items });
+  const updateCategory = (id, field, value) => {
+    const updated = categories.map(cat => 
+      cat.id === id ? { ...cat, [field]: value } : cat
+    );
+    updateCategories(updated);
   };
 
-  const removeItem = (id) => update({ items: (category.items || []).filter(c => c.id !== id) });
-
-  const moveItem = (idx, dir) => {
-    const items = [...(category.items || [])];
-    const swap = idx + dir;
-    if (swap < 0 || swap >= items.length) return;
-    [items[idx], items[swap]] = [items[swap], items[idx]];
-    update({ items });
+  const getIconSvg = (iconId) => {
+    const icon = AVAILABLE_ICONS.find(i => i.id === iconId);
+    return icon?.svg || AVAILABLE_ICONS[0].svg;
   };
 
   return (
-    <div>
-      <div className="adm-card">
-        <div className="adm-card-header">
-          <div className="adm-card-title">Section Title</div>
-          <span style={{ fontSize: 11, color: 'var(--a-muted)' }}>Changing title also updates the Navbar label.</span>
+    <div className="category-editor" style={{ padding: '20px', maxWidth: '900px', margin: '0 auto' }}>
+      <div style={{ 
+        display: 'flex', 
+        justifyContent: 'space-between', 
+        alignItems: 'center',
+        marginBottom: '24px',
+        borderBottom: '1px solid #e5e7eb',
+        paddingBottom: '16px'
+      }}>
+        <div>
+          <h2 style={{ margin: 0, fontSize: '24px', fontWeight: '600' }}>Category Editor</h2>
+          <p style={{ margin: '4px 0 0', color: '#6b7280' }}>
+            {categories.length} categories loaded
+          </p>
         </div>
-        <div className="adm-field">
-          <label className="adm-label">Title</label>
-          <input
-            className="adm-input"
-            value={category.title || ''}
-            onChange={e => update({ title: e.target.value })}
-          />
-        </div>
+        <button 
+          onClick={addCategory}
+          style={{
+            padding: '8px 16px',
+            background: '#1F4A44',
+            color: 'white',
+            border: 'none',
+            borderRadius: '6px',
+            cursor: 'pointer',
+            fontSize: '14px',
+            fontWeight: '500'
+          }}
+        >
+          + Add Category
+        </button>
       </div>
 
-      <div className="adm-card">
-        <div className="adm-card-header">
-          <div>
-            <div className="adm-card-title">Category Items ({(category.items || []).length})</div>
-            <div className="adm-card-subtitle">Each item appears as a category chip / card on the site.</div>
-          </div>
-          <button className="adm-btn adm-btn-secondary adm-btn-sm" onClick={addItem}>+ Add Category</button>
-        </div>
+      {/* Category List */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        {categories.map((category, index) => (
+          <div 
+            key={category.id} 
+            style={{
+              border: '1px solid #e5e7eb',
+              borderRadius: '12px',
+              padding: '20px',
+              background: '#ffffff'
+            }}
+          >
+            <div style={{ 
+              display: 'flex', 
+              justifyContent: 'space-between', 
+              alignItems: 'center',
+              marginBottom: '20px'
+            }}>
+              <span style={{ 
+                background: '#1F4A44', 
+                padding: '4px 12px', 
+                borderRadius: '20px',
+                fontSize: '12px',
+                fontWeight: '500',
+                color: 'white'
+              }}>
+                Category {index + 1}
+              </span>
+              <button
+                onClick={() => deleteCategory(category.id)}
+                style={{
+                  padding: '6px 12px',
+                  background: '#dc2626',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '6px',
+                  cursor: 'pointer',
+                  fontSize: '12px'
+                }}
+              >
+                Delete
+              </button>
+            </div>
 
-        <div className="adm-list">
-          {(category.items || []).map((item, idx) => (
-            <div key={item.id} className="adm-list-item" style={{ flexDirection: 'column', alignItems: 'stretch', gap: 10 }}>
-              {/* Header row */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                  <button type="button" className="adm-btn adm-btn-ghost adm-btn-sm adm-btn-icon" onClick={() => moveItem(idx, -1)} disabled={idx === 0} style={{ padding: '2px 6px' }}>▲</button>
-                  <button type="button" className="adm-btn adm-btn-ghost adm-btn-sm adm-btn-icon" onClick={() => moveItem(idx, 1)}  disabled={idx === (category.items || []).length - 1} style={{ padding: '2px 6px' }}>▼</button>
+            {/* Icon Selection */}
+            <div style={{ marginBottom: '20px' }}>
+              <label style={{ display: 'block', marginBottom: '8px', fontWeight: '500', fontSize: '14px' }}>
+                Icon
+              </label>
+              <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+                <div style={{
+                  width: '48px',
+                  height: '48px',
+                  border: '1px solid #e5e7eb',
+                  borderRadius: '8px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  padding: '8px'
+                }}>
+                  <img 
+                    src={getIconSvg(category.icon)} 
+                    alt="icon"
+                    style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                  />
                 </div>
-                {item.icon && <span style={{ fontSize: 24 }}>{item.icon}</span>}
-                <span style={{ fontWeight: 600, flex: 1 }}>{item.label || '(unlabeled)'}</span>
-                <button className="adm-btn adm-btn-ghost adm-btn-sm" onClick={() => duplicateItem(item.id)}>Duplicate</button>
-                <button className="adm-btn adm-btn-danger adm-btn-sm" onClick={() => removeItem(item.id)}>Delete</button>
+                <select
+                  value={category.icon}
+                  onChange={(e) => updateCategory(category.id, 'icon', e.target.value)}
+                  style={{
+                    padding: '8px 12px',
+                    border: '1px solid #e5e7eb',
+                    borderRadius: '6px',
+                    fontSize: '14px',
+                    background: 'white'
+                  }}
+                >
+                  {AVAILABLE_ICONS.map(icon => (
+                    <option key={icon.id} value={icon.id}>{icon.name}</option>
+                  ))}
+                </select>
               </div>
+            </div>
 
-              {/* Fields */}
-              <div className="adm-row">
-                <div className="adm-field">
-                  <label className="adm-label">Label (display name)</label>
-                  <input className="adm-input" value={item.label || ''} onChange={e => updateItem(item.id, 'label', e.target.value)} placeholder="e.g. Candles" />
-                </div>
-                <div className="adm-field">
-                  <label className="adm-label">Icon / Emoji (optional)</label>
-                  <input className="adm-input" value={item.icon || ''} onChange={e => updateItem(item.id, 'icon', e.target.value)} placeholder="🕯️" style={{ fontSize: 18 }} />
-                </div>
-              </div>
-
-              <ImageUploader
-                currentUrl={item.image}
-                onImageUploaded={(url) => updateItem(item.id, 'image', url)}
-                folder="category"
-                label="Category Image (optional)"
+            {/* Title Input */}
+            <div style={{ marginBottom: '20px' }}>
+              <label style={{ display: 'block', marginBottom: '8px', fontWeight: '500', fontSize: '14px' }}>
+                Title
+              </label>
+              <input
+                type="text"
+                value={category.title}
+                onChange={(e) => updateCategory(category.id, 'title', e.target.value)}
+                style={{
+                  width: '100%',
+                  padding: '10px 12px',
+                  border: '1px solid #e5e7eb',
+                  borderRadius: '6px',
+                  fontSize: '14px',
+                  boxSizing: 'border-box'
+                }}
               />
+            </div>
+
+            {/* Description Input */}
+            <div>
+              <label style={{ display: 'block', marginBottom: '8px', fontWeight: '500', fontSize: '14px' }}>
+                Description
+              </label>
+              <textarea
+                value={category.description}
+                onChange={(e) => updateCategory(category.id, 'description', e.target.value)}
+                style={{
+                  width: '100%',
+                  padding: '10px 12px',
+                  border: '1px solid #e5e7eb',
+                  borderRadius: '6px',
+                  fontSize: '14px',
+                  minHeight: '80px',
+                  fontFamily: 'inherit',
+                  boxSizing: 'border-box',
+                  resize: 'vertical'
+                }}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Live Preview */}
+      <div style={{ marginTop: '32px' }}>
+        <h3 style={{ marginBottom: '16px', fontSize: '18px', fontWeight: '600' }}>Live Preview</h3>
+        <div style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          gap: '20px',
+          padding: '20px',
+          background: '#f9fafb',
+          borderRadius: '12px'
+        }}>
+          {categories.map(category => (
+            <div key={category.id} style={{
+              flex: '1 1 200px',
+              textAlign: 'center',
+              padding: '20px',
+              background: 'white',
+              borderRadius: '8px'
+            }}>
+              <div style={{ width: '50px', height: '50px', margin: '0 auto 10px' }}>
+                <img 
+                  src={getIconSvg(category.icon)} 
+                  alt={category.title}
+                  style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                />
+              </div>
+              <h4 style={{ margin: '10px 0' }}>{category.title}</h4>
+              <p style={{ fontSize: '12px', color: '#666' }}>{category.description}</p>
             </div>
           ))}
         </div>
-
-        <button className="adm-add-strip" onClick={addItem}>+ Add category item</button>
       </div>
-
-      {/* Preview */}
-      {(category.items || []).length > 0 && (
-        <div className="adm-card">
-          <div className="adm-card-header">
-            <div className="adm-card-title">Preview</div>
-          </div>
-          <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', padding: '8px 0' }}>
-            {(category.items || []).map(item => (
-              <div key={item.id} style={{
-                display: 'flex', alignItems: 'center', gap: 6,
-                padding: '8px 16px', borderRadius: 20,
-                background: 'var(--a-lime)', border: '1px solid var(--a-border)',
-                fontSize: 13, fontWeight: 600, color: 'var(--a-green)',
-              }}>
-                {item.icon && <span style={{ fontSize: 16 }}>{item.icon}</span>}
-                {item.label || '(empty)'}
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
     </div>
   );
 };

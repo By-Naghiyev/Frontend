@@ -4,9 +4,9 @@ import NavbarEditor   from './editors/NavbarEditor';
 import HeaderEditor   from './editors/HeaderEditor';
 import AboutEditor    from './editors/AboutEditor';
 import ProductsEditor from './editors/ProductsEditor';
+import CategoryEditor from './editors/CategoryEditor';
 import BlogsEditor    from './editors/BlogsEditor';
 import FooterEditor   from './editors/FooterEditor';
-import CategoryEditor from './editors/CategoryEditor';
 import LogoSvg from '../../public/_redirects/assets/svg/logo.svg';
 
 // ── ICONS ──────────────────────────────────────────────────────────────────

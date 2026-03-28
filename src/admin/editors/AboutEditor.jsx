@@ -43,7 +43,9 @@ const AboutEditor = ({ data, onChange }) => {
     update({ images });
   };
 
-  const addImage = () => update({ images: [...(about.images || []), { id: `a${Date.now()}`, url: '', alt: 'About image' }] });
+  const addImage = () => update({ 
+    images: [...(about.images || []), { id: `a${Date.now()}`, url: '', alt: 'About image' }] 
+  });
 
   const duplicateImage = (id) => {
     const images = [...(about.images || [])];
@@ -104,6 +106,7 @@ const AboutEditor = ({ data, onChange }) => {
         <div className="adm-card-header">
           <div>
             <div className="adm-card-title">Slider Images</div>
+            <div className="adm-card-subtitle">Images will be displayed in the about section slider</div>
           </div>
           <button className="adm-btn adm-btn-secondary adm-btn-sm" onClick={addImage}>+ Add Image</button>
         </div>
@@ -132,6 +135,9 @@ const AboutEditor = ({ data, onChange }) => {
             </div>
           ))}
         </div>
+        {(!about.images || about.images.length === 0) && (
+          <div className="adm-empty-state">No images added yet. Click "Add Image" to get started.</div>
+        )}
         <button className="adm-add-strip" onClick={addImage}>+ Add image</button>
       </div>
     </div>

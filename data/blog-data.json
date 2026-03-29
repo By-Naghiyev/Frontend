@@ -1,0 +1,168 @@
+{
+  "sectionTitle": {
+    "en": "Blogs",
+    "az": "Bloqlar"
+  },
+  "readMoreText": {
+    "en": "Read More",
+    "az": "Daha Ətraflı"
+  },
+  "blogs": [
+    {
+      "id": 1,
+      "name": {
+        "en": "Scented Candle 1",
+        "az": "Ətirli Şam 1"
+      },
+      "time": {
+        "en": "02.12.2025",
+        "az": "12.02.2025"
+      },
+      "description": {
+        "en": "Natural Waxes & Essential Oils",
+        "az": "Təbii Mumlar & Efir Yağları"
+      },
+      "image": "https://raw.githubusercontent.com/kenanmusali/ByNaghiyev-Backend/refs/heads/main/public/assets/img/blog/blog1.png",
+      "expandedContent": {
+        "title": {
+          "en": "The Art of Natural Scented Candles",
+          "az": "Təbii Ətirli Şamların Sənəti"
+        },
+        "images": [
+          "https://raw.githubusercontent.com/kenanmusali/ByNaghiyev-Backend/refs/heads/main/public/assets/img/blog/blog1.png",
+          "https://raw.githubusercontent.com/kenanmusali/ByNaghiyev-Backend/refs/heads/main/public/assets/img/blog/blog2.png",
+          "https://raw.githubusercontent.com/kenanmusali/ByNaghiyev-Backend/refs/heads/main/public/assets/img/blog/blog3.png"
+        ],
+        "paragraphs": {
+          "en": [
+            "Discover the enchanting world of natural scented candles, where each flame tells a story of craftsmanship and nature's finest ingredients. Our hand-poured candles are created using only the highest quality natural waxes, including soy, coconut, and beeswax, ensuring a clean and long-lasting burn.",
+            "The journey of creating the perfect scented candle begins with selecting the finest essential oils. Each fragrance is carefully curated to evoke specific moods and memories, from calming lavender fields to invigorating citrus groves.",
+            "When you light one of our candles, you're not just creating ambiance - you're supporting traditional craftsmanship and sustainable practices. The warm glow and subtle fragrance transform any space into a sanctuary of calm and relaxation."
+          ],
+          "az": [
+            "Təbii ətirli şamların sehrli dünyasını kəşf edin, burada hər bir alov sənətkarlıq və təbiətin ən yaxşı tərkib hissələrinin hekayəsini danışır. Əllə tökülən şamlarımız yalnız ən yüksək keyfiyyətli təbii mumlardan, o cümlədən soya, kokos və arı mumundan hazırlanır, təmiz və uzunmüddətli yanma təmin edir.",
+            "Mükəmməl ətirli şam yaratmaq səyahəti ən yaxşı efir yağlarını seçməklə başlayır. Hər bir ətir xüsusi əhval-ruhiyyə və xatirələri canlandırmaq üçün diqqətlə seçilir, sakitləşdirici lavanda çöllərindən tutmuş canlandırıcı sitrus bağlarına qədər.",
+            "Şamlarımızdan birini yandırdığınız zaman, sadəcə atmosfer yaratmırsınız - siz ənənəvi sənətkarlığı və davamlı təcrübələri dəstəkləyirsiniz. İsti parıltı və incə ətir istənilən məkanı sakitlik və rahatlama məkanına çevirir."
+          ]
+        }
+      }
+    },
+    {
+      "id": 2,
+      "name": {
+        "en": "Scented Candle 2",
+        "az": "Ətirli Şam 2"
+      },
+      "time": {
+        "en": "02.12.2025",
+        "az": "12.02.2025"
+      },
+      "description": {
+        "en": "Natural Waxes & Essential Oils",
+        "az": "Təbii Mumlar & Efir Yağları"
+      },
+      "image": "https://raw.githubusercontent.com/kenanmusali/ByNaghiyev-Backend/refs/heads/main/public/assets/img/blog/blog1.png",
+      "expandedContent": {
+        "title": {
+          "en": "Aromatherapy Benefits",
+          "az": "Aromaterapiyanın Faydaları"
+        },
+        "images": [
+          "https://raw.githubusercontent.com/kenanmusali/ByNaghiyev-Backend/refs/heads/main/public/assets/img/blog/blog1.png",
+          "https://raw.githubusercontent.com/kenanmusali/ByNaghiyev-Backend/refs/heads/main/public/assets/img/blog/blog2.png",
+          "https://raw.githubusercontent.com/kenanmusali/ByNaghiyev-Backend/refs/heads/main/public/assets/img/blog/blog3.png"
+        ],
+        "paragraphs": {
+          "en": [
+            "Aromatherapy has been practiced for thousands of years, harnessing the power of plant essences to promote physical and emotional well-being.",
+            "Each essential oil in our candles serves a specific purpose. Lavender promotes relaxation and restful sleep, peppermint invigorates and improves focus.",
+            "Our candles are formulated to maximize these therapeutic benefits. We use the perfect concentration of essential oils to ensure effective aromatherapy."
+          ],
+          "az": [
+            "Aromaterapiya min illərdir tətbiq olunur, bitki essensiyalarının gücündən istifadə edərək fiziki və emosional sağlamlığı təşviq edir.",
+            "Şamlarımızdakı hər bir efir yağı xüsusi məqsədə xidmət edir. Lavanda rahatlama və dinc yuxunu təşviq edir, nanə canlandırır və diqqəti yaxşılaşdırır.",
+            "Şamlarımız bu terapevtik faydaları maksimuma çatdırmaq üçün hazırlanmışdır. Effektiv aromaterapiyanı təmin etmək üçün mükəmməl efir yağı konsentrasiyasından istifadə edirik."
+          ]
+        }
+      }
+    },
+    {
+      "id": 3,
+      "name": {
+        "en": "Scented Candle 1",
+        "az": "Ətirli Şam 1"
+      },
+      "time": {
+        "en": "02.12.2025",
+        "az": "12.02.2025"
+      },
+      "description": {
+        "en": "Natural Waxes & Essential Oils",
+        "az": "Təbii Mumlar & Efir Yağları"
+      },
+      "image": "https://raw.githubusercontent.com/kenanmusali/ByNaghiyev-Backend/refs/heads/main/public/assets/img/blog/blog1.png",
+      "expandedContent": {
+        "title": {
+          "en": "The Art of Natural Scented Candles",
+          "az": "Təbii Ətirli Şamların Sənəti"
+        },
+        "images": [
+          "https://raw.githubusercontent.com/kenanmusali/ByNaghiyev-Backend/refs/heads/main/public/assets/img/blog/blog1.png",
+          "https://raw.githubusercontent.com/kenanmusali/ByNaghiyev-Backend/refs/heads/main/public/assets/img/blog/blog2.png",
+          "https://raw.githubusercontent.com/kenanmusali/ByNaghiyev-Backend/refs/heads/main/public/assets/img/blog/blog3.png"
+        ],
+        "paragraphs": {
+          "en": [
+            "Discover the enchanting world of natural scented candles, where each flame tells a story of craftsmanship and nature's finest ingredients. Our hand-poured candles are created using only the highest quality natural waxes, including soy, coconut, and beeswax, ensuring a clean and long-lasting burn.",
+            "The journey of creating the perfect scented candle begins with selecting the finest essential oils. Each fragrance is carefully curated to evoke specific moods and memories, from calming lavender fields to invigorating citrus groves.",
+            "When you light one of our candles, you're not just creating ambiance - you're supporting traditional craftsmanship and sustainable practices. The warm glow and subtle fragrance transform any space into a sanctuary of calm and relaxation."
+          ],
+          "az": [
+            "Təbii ətirli şamların sehrli dünyasını kəşf edin, burada hər bir alov sənətkarlıq və təbiətin ən yaxşı tərkib hissələrinin hekayəsini danışır. Əllə tökülən şamlarımız yalnız ən yüksək keyfiyyətli təbii mumlardan, o cümlədən soya, kokos və arı mumundan hazırlanır, təmiz və uzunmüddətli yanma təmin edir.",
+            "Mükəmməl ətirli şam yaratmaq səyahəti ən yaxşı efir yağlarını seçməklə başlayır. Hər bir ətir xüsusi əhval-ruhiyyə və xatirələri canlandırmaq üçün diqqətlə seçilir, sakitləşdirici lavanda çöllərindən tutmuş canlandırıcı sitrus bağlarına qədər.",
+            "Şamlarımızdan birini yandırdığınız zaman, sadəcə atmosfer yaratmırsınız - siz ənənəvi sənətkarlığı və davamlı təcrübələri dəstəkləyirsiniz. İsti parıltı və incə ətir istənilən məkanı sakitlik və rahatlama məkanına çevirir."
+          ]
+        }
+      }
+    },
+    {
+      "id": 4,
+      "name": {
+        "en": "Scented Candle 2",
+        "az": "Ətirli Şam 2"
+      },
+      "time": {
+        "en": "02.12.2025",
+        "az": "12.02.2025"
+      },
+      "description": {
+        "en": "Natural Waxes & Essential Oils",
+        "az": "Təbii Mumlar & Efir Yağları"
+      },
+      "image": "https://raw.githubusercontent.com/kenanmusali/ByNaghiyev-Backend/refs/heads/main/public/assets/img/blog/blog1.png",
+      "expandedContent": {
+        "title": {
+          "en": "Aromatherapy Benefits",
+          "az": "Aromaterapiyanın Faydaları"
+        },
+        "images": [
+          "https://raw.githubusercontent.com/kenanmusali/ByNaghiyev-Backend/refs/heads/main/public/assets/img/blog/blog1.png",
+          "https://raw.githubusercontent.com/kenanmusali/ByNaghiyev-Backend/refs/heads/main/public/assets/img/blog/blog2.png",
+          "https://raw.githubusercontent.com/kenanmusali/ByNaghiyev-Backend/refs/heads/main/public/assets/img/blog/blog3.png"
+        ],
+        "paragraphs": {
+          "en": [
+            "Aromatherapy has been practiced for thousands of years, harnessing the power of plant essences to promote physical and emotional well-being.",
+            "Each essential oil in our candles serves a specific purpose. Lavender promotes relaxation and restful sleep, peppermint invigorates and improves focus.",
+            "Our candles are formulated to maximize these therapeutic benefits. We use the perfect concentration of essential oils to ensure effective aromatherapy."
+          ],
+          "az": [
+            "Aromaterapiya min illərdir tətbiq olunur, bitki essensiyalarının gücündən istifadə edərək fiziki və emosional sağlamlığı təşviq edir.",
+            "Şamlarımızdakı hər bir efir yağı xüsusi məqsədə xidmət edir. Lavanda rahatlama və dinc yuxunu təşviq edir, nanə canlandırır və diqqəti yaxşılaşdırır.",
+            "Şamlarımız bu terapevtik faydaları maksimuma çatdırmaq üçün hazırlanmışdır. Effektiv aromaterapiyanı təmin etmək üçün mükəmməl efir yağı konsentrasiyasından istifadə edirik."
+          ]
+        }
+      }
+    }
+  ]
+}

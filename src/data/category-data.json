@@ -1,0 +1,56 @@
+{
+  "sectionTitle": {
+    "en": "Categories",
+    "az": "Kateqoriyalar"
+  },
+  "categories": [
+    {
+      "id": 1,
+      "icon": "https://raw.githubusercontent.com/kenanmusali/ByNaghiyev-Backend/refs/heads/main/public/assets/svg/category/volunteer_activism.svg",
+      "name": {
+        "en": "Hand Made",
+        "az": "Əl İşi"
+      },
+      "description": {
+        "en": "Carefully crafted by hand with attention to fine detail, ensuring every piece is unique.",
+        "az": "Hər bir parçanın unikal olmasını təmin edən incə detallara diqqət yetirilərək əllə hazırlanmışdır."
+      }
+    },
+    {
+      "id": 2,
+      "icon": "https://raw.githubusercontent.com/kenanmusali/ByNaghiyev-Backend/refs/heads/main/public/assets/svg/category/deployed_code.svg",
+      "name": {
+        "en": "Premium Materials",
+        "az": "Premium Materiallar"
+      },
+      "description": {
+        "en": "We use high-quality wax, resin, and plaster for durability, safety, and refined finish.",
+        "az": "Davamlılıq, təhlükəsizlik və incə bitiş üçün yüksək keyfiyyətli mum, rezin və gipsdən istifadə edirik."
+      }
+    },
+    {
+      "id": 3,
+      "icon": "https://raw.githubusercontent.com/kenanmusali/ByNaghiyev-Backend/refs/heads/main/public/assets/svg/category/asterisk.svg",
+      "name": {
+        "en": "Modern Design",
+        "az": "Müasir Dizayn"
+      },
+      "description": {
+        "en": "Contemporary aesthetics meeting functional elegance for your living spaces.",
+        "az": "Yaşayış sahələriniz üçün funksional eleqantlıqla müasir estetikanın görüşü."
+      }
+    },
+    {
+      "id": 4,
+      "icon": "https://raw.githubusercontent.com/kenanmusali/ByNaghiyev-Backend/refs/heads/main/public/assets/svg/category/psychiatry.svg",
+      "name": {
+        "en": "Eco Conscious",
+        "az": "Eko Şüurlu"
+      },
+      "description": {
+        "en": "Thoughtfully sourced materials and responsible production practices.",
+        "az": "Düşünülmüş mənbə materialları və məsuliyyətli istehsal təcrübələri."
+      }
+    }
+  ]
+}
